@@ -1,6 +1,6 @@
-id: custom_sensiml
+id: knowledgepack
 package: sensiml
-label: Sensiml Knowledge Pack
+label: SensiML Knowledge Pack
 description: >
   This component provides a knowledge pack for a sensiml generated machine learning module.
 category: sensiml
@@ -9,9 +9,10 @@ requires:
   - name: tensorflow_lite_micro
   - name: mvp 
 provides:
-  - name: custom_sensiml
+  - name: knowledgepack
 include:
-  - path: lib
+  - path: .
+  - path: knowledgepack/lib
     file_list:
       - path: kb_debug.h
       - path: kb_defines.h
@@ -19,14 +20,14 @@ include:
       - path: kb.h
       - path: model_json.h
       - path: testdata.h   
-  - path: application
+  - path: knowledgepack/application
     file_list:
       - path: sml_output.h
       - path: sml_recognition_run.h 
 source: 
-  - path: application/sml_output.c
-  - path: application/sml_recognition_run.c
+  - path: knowledgepack/application/sml_output.c
+  - path: knowledgepack/application/sml_recognition_run.c
 library:
-  - path: lib/libsensiml.a
-  - path: lib/libtensorflow-microlite.a
+  - path: knowledgepack/lib/libsensiml.a
+  - path: knowledgepack/lib/libtensorflow-microlite.a
 

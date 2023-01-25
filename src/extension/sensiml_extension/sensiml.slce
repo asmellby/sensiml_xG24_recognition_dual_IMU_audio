@@ -1,0 +1,10 @@
+id: sensiml
+label: SensiML Knowledge Pack Extension
+description: >
+    Knowledge Pack Extension for SensiML
+version: 1.0.0
+sdk:
+  id: gecko_sdk
+  version: 4.2.0
+component_path:
+  - path: knowledgepack

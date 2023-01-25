@@ -1,0 +1,57 @@
+# Silicon Labs Project Configuration Tools: slcp, v0, Component selection file.
+project_name: sensiml_recognition_dual_IMU_audio
+label: sensiml_recognition_dual_IMU_audio
+description: |
+  This example project shows how to blink an LED in a bare-metal configuration.
+category: Example|Platform
+package: platform
+quality: production
+source:
+- {path: app.c}
+- {path: app_iostream_usart.c}
+- {path: app_led.c}
+- {path: app_sensor_imu.c}
+- {path: app_voice.c}
+- {path: circular_buff.c}
+- {path: filter.c}
+- {path: main.c}
+- {path: sensiml_recognition_dual_IMU_audio_combine.c}
+tag: ['hardware:component:led:1+']
+include:
+- path: ''
+  file_list:
+  - {path: app.h}
+  - {path: app_iostream_usart.h}
+  - {path: app_led.h}
+  - {path: app_sensor_imu.h}
+  - {path: app_voice.h}
+  - {path: circular_buff.h}
+  - {path: filter.h}
+  - {path: sensiml_recognition_dual_IMU_audio_combine.h}
+sdk: {id: gecko_sdk, version: 4.2.0}
+toolchain_settings:
+- {option: gcc_compiler_option, value: '-Wno-unused-parameter'}
+component:
+- {id: brd2601b}
+- {id: iostream_retarget_stdio}
+- {id: sl_system}
+- {id: brd4001a}
+- {id: knowledgepack, from: sensiml}
+- {id: cpp_support}
+- {id: mic_i2s_driver}
+- instance: [led0, led1]
+  id: simple_led
+- {id: tensorflow_lite_micro}
+- {id: device_init}
+- {id: device_init_hfrco}
+- instance: [vcom]
+  id: iostream_eusart
+- {id: app_assert}
+- {id: imu_driver}
+- {id: EFR32MG24B310F1536IM48}
+- {id: sleeptimer}
+define:
+- {name: DEBUG_EFM}
+ui_hints: {}
+sdk_extension:
+- {id: sensiml, version: 1.0.0}
